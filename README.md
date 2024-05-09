@@ -1,0 +1,2 @@
+# Webpack from Scratch
+This is a project I created to learn Webpack 5 from scratch. The aim is to take an in-depth look at the Webpack 5 documentation and to learn what the different configurations in a webpack.config.js fire are used for.
