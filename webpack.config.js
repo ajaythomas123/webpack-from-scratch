@@ -1,5 +1,9 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 module.exports = {
   mode: 'none',
@@ -7,7 +11,6 @@ module.exports = {
   // The entry paths are all relative to the context path.
   entry: {
     mainApp: { import: './src/client/mainApp/index.js', dependOn: ['utils'] },
-    popupApp: { import: './src/client/popupApp/index.js', dependOn: 'utils' },
     utils: ['./src/utils/loggers.js'],
   },
   output: {
@@ -16,7 +19,23 @@ module.exports = {
     // Deletes the dist folder every time webpack is run.
     clean: true,
   },
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: ['babel-loader'],
+      }
+    ]
+  },
   plugins: [
+    /**
+     * DefinePlugin replaces every instance of process.env in the code at compile time.
+     * It DOES NOT make process.env available in the browser or code during runtime.
+     */
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(process.env)
+    }),
     new HtmlWebpackPlugin({
       title: 'Webpack from Scratch',
       // The filename path is relative to output.path.
