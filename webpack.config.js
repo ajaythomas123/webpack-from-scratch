@@ -1,5 +1,8 @@
+const path = require('path');
+
 module.exports = {
   mode: 'none',
+  context: path.resolve(__dirname, '.'),
   entry: {
     mainApp: './src/client/mainApp/index.js',
     popupApp: './src/client/popupApp/index.js',
