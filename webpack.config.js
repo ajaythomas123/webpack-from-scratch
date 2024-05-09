@@ -5,4 +5,7 @@ module.exports = {
     popupApp: './src/client/popupApp/index.js',
     utils: ['./src/utils/loggers.js'],
   },
+  output: {
+    filename: '[name].bundle.js'
+  }
 }
