@@ -9,6 +9,7 @@ module.exports = {
     utils: ['./src/utils/loggers.js'],
   },
   output: {
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name]-[contenthash].bundle.js',
     // Deletes the dist folder every time webpack is run.
     clean: true,
