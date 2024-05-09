@@ -6,6 +6,6 @@ module.exports = {
     utils: ['./src/utils/loggers.js'],
   },
   output: {
-    filename: '[name].bundle.js'
+    filename: '[name]-[contenthash].bundle.js',
   }
 }
