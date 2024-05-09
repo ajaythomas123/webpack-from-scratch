@@ -1,11 +1,14 @@
 module.exports = {
   mode: 'none',
-  entry: { 
+  entry: {
     mainApp: './src/client/mainApp/index.js',
     popupApp: './src/client/popupApp/index.js',
     utils: ['./src/utils/loggers.js'],
   },
   output: {
     filename: '[name]-[contenthash].bundle.js',
-  }
+    // Deletes the dist folder every time webpack is run.
+    clean: true,
+  },
+  watch: true
 }
