@@ -6,7 +6,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 module.exports = {
-  mode: 'none',
+  mode: process.env.NODE_ENV,
+  devtool: 'source-map',
   context: path.resolve(__dirname, '.'),
   // The entry paths are all relative to the context path.
   entry: {
