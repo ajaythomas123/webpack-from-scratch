@@ -6,8 +6,8 @@ module.exports = {
   context: path.resolve(__dirname, '.'),
   // The entry paths are all relative to the context path.
   entry: {
-    mainApp: './src/client/mainApp/index.js',
-    popupApp: './src/client/popupApp/index.js',
+    mainApp: { import: './src/client/mainApp/index.js', dependOn: ['utils'] },
+    popupApp: { import: './src/client/popupApp/index.js', dependOn: 'utils' },
     utils: ['./src/utils/loggers.js'],
   },
   output: {
