@@ -1,12 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const dotenv = require('dotenv');
 
-dotenv.config();
-
-module.exports = {
-  mode: process.env.NODE_ENV,
+module.exports = (env) => ({
+  mode: env.NODE_ENV,
   devtool: 'source-map',
   context: path.resolve(__dirname, '.'),
   // The entry paths are all relative to the context path.
@@ -35,7 +32,7 @@ module.exports = {
      * It DOES NOT make process.env available in the browser or code during runtime.
      */
     new webpack.DefinePlugin({
-      'process.env': JSON.stringify(process.env)
+      'process.env': JSON.stringify(env)
     }),
     new HtmlWebpackPlugin({
       title: 'Webpack from Scratch',
@@ -62,6 +59,6 @@ module.exports = {
      */
     liveReload: true,
     compress: true,
-    port: 9000,
+    port: 9005,
   },
-}
+});
