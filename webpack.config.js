@@ -27,7 +27,7 @@ module.exports = (env) => ({
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        use: ['css-loader']
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
