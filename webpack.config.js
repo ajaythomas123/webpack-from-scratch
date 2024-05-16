@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 
 module.exports = (env) => ({
   mode: env.NODE_ENV,
@@ -27,7 +29,7 @@ module.exports = (env) => ({
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        use: ['style-loader', 'css-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       }
     ]
   },
@@ -43,7 +45,8 @@ module.exports = (env) => ({
       title: 'Webpack from Scratch',
       // The filename path is relative to output.path.
       filename: 'index.html'
-    })
+    }),
+    new MiniCssExtractPlugin()
   ],
   devServer: {
     static: {
