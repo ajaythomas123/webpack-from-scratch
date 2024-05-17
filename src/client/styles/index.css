@@ -1,5 +1,0 @@
-@import url('./variables.css');
-
-.heading1 {
-    color: var(--primary-color);
-}
